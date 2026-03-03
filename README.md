@@ -1,53 +1,189 @@
-# React + TypeScript + Vite
+# MediConnect - Healthcare Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive healthcare platform that connects patients, doctors, and administrators in a unified digital ecosystem. MediConnect streamlines healthcare delivery through real-time messaging, AI-powered chatbots, appointment scheduling, and comprehensive patient management.
 
-Currently, two official plugins are available:
+## 📋 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+MediConnect is a full-stack healthcare application designed to improve patient-doctor interactions and healthcare administration. The platform provides specialized portals for different user roles: patients, doctors, and administrators, each with tailored features and functionalities.
 
-## React Compiler
+## ✨ Key Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Patient Features
+- **Dashboard**: Overview of health status and upcoming appointments
+- **Doctor Search**: Find and connect with healthcare professionals
+- **Appointment Booking**: Schedule visits with doctors
+- **Messages**: Direct communication with registered doctors
+- **AI Chatbot**: Instant health guidance powered by Google Gemini
+- **Medical History**: Track visits and medical records
+- **Pharmacy Integration**: Access medication management
+- **Events**: Participate in health awareness events
+- **Profile Management**: Manage personal and medical information
 
-## Expanding the ESLint configuration
+### Doctor Features
+- **Patient Management**: View and manage assigned patients
+- **Appointment Schedule**: Manage and track patient appointments
+- **Messaging System**: Direct communication with patients
+- **Disease Trends**: Analytics on patient health trends
+- **Profile**: Professional profile and credentials
+- **Dashboard**: Practice overview and statistics
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Admin Features
+- **Staff Management**: Manage doctors and healthcare staff
+- **Inventory Management**: Track medical supplies and equipment
+- **Event Management**: Create and manage health events
+- **Admin Communications**: Chat with staff and patients
+- **Rulebook Management**: Maintain platform guidelines and policies
+- **Analytics Dashboard**: Monitor platform usage and statistics
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### General Features
+- **Multi-Language Support**: Support for multiple languages
+- **Real-Time Messaging**: Instant message delivery
+- **Authentication & Security**: Secure user authentication
+- **Responsive Design**: Mobile-friendly interface
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Frontend
+- **React 18+**: Modern UI framework with hooks
+- **TypeScript**: Type-safe development
+- **Vite**: Fast build tool and development server
+- **Tailwind CSS**: Utility-first CSS framework
+- **PostCSS**: CSS transformations
+
+### Backend & Database
+- **Supabase**: Open-source Firebase alternative
+  - PostgreSQL Database
+  - Real-time subscriptions
+  - Authentication (JWT)
+  - Row-level security
+- **SQL**: Database schema and migrations
+
+### AI & APIs
+- **Google Gemini API**: AI-powered chatbot and health guidance
+
+### Development Tools
+- **ESLint**: Code quality and linting
+- **TypeScript Config**: Strict type checking
+
+## 📁 Project Structure
+
+```
+mediconnect-app/
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── layout/        # Layout components
+│   │   └── ui/            # Basic UI elements
+│   ├── pages/             # Page components
+│   │   ├── admin/         # Admin panel pages
+│   │   ├── auth/          # Authentication pages
+│   │   ├── doctor/        # Doctor portal pages
+│   │   └── patient/       # Patient portal pages
+│   ├── context/           # React context (Auth, Language)
+│   ├── lib/               # Utility libraries
+│   │   ├── supabase.ts   # Supabase configuration
+│   │   ├── gemini.ts     # Gemini API integration
+│   │   └── utils.ts      # Helper functions
+│   ├── types/             # TypeScript type definitions
+│   ├── App.tsx            # Root component
+│   └── main.tsx           # Application entry point
+├── public/                # Static assets
+├── supabase_*.sql         # Database schema files
+└── vite.config.ts         # Vite configuration
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
+### Prerequisites
+- Node.js 16+ and npm/yarn
+- Supabase account
+- Google Gemini API key
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/MAYEKARBRO/mediconnect-app-lenovo-ai-hackathona.git
+cd mediconnect-app
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Configure environment variables:
+Create a `.env` file in the root directory with:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+VITE_GEMINI_API_KEY=your_gemini_api_key
+```
+
+4. Initialize Supabase:
+- Run the SQL files in `supabase_*.sql` to set up the database schema and tables
+
+### Running the Application
+
+Development mode:
+```bash
+npm run dev
+```
+
+Build for production:
+```bash
+npm run build
+```
+
+Preview production build:
+```bash
+npm run preview
+```
+
+## 📦 Dependencies
+
+Key packages used in the project:
+- React & React Router for navigation
+- Supabase client library for backend operations
+- Axios or Fetch API for HTTP requests
+- TailwindCSS for styling
+
+## 🔐 Security
+
+- JWT-based authentication via Supabase
+- Row-level security (RLS) on database tables
+- Secure API key management through environment variables
+- Protected routes based on user roles
+
+## 💾 Database
+
+The application uses PostgreSQL (via Supabase) with the following main entities:
+- Users (patients, doctors, admins)
+- Appointments
+- Messages
+- Medical Records
+- Events
+- Inventory
+- Staff Management
+
+See `SUPABASE_SETUP.md` for detailed database setup instructions.
+
+## 📱 Responsive Design
+
+- Mobile-first approach
+- Responsive components using Tailwind CSS
+- Optimized for devices ranging from 320px to 4K displays
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues and enhancement requests.
+
+## 📄 License
+
+This project is developed as part of the Lenovo AI Hackathon.
+
+## 📞 Support
+
+For issues and questions, please reach out to the development team or open an issue in the repository.
 import reactDom from 'eslint-plugin-react-dom'
 
 export default defineConfig([
